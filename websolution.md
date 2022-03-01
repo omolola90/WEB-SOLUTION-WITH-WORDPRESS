@@ -254,7 +254,28 @@ SHOW DATABASES;
  
 exit
  
- 
+  <img width="244" alt="msql db" src="https://user-images.githubusercontent.com/82297594/156104052-5eaa2c6d-ba0c-446d-9d9c-e82eeff4094c.png">
 
+ Step 6 — Configure WordPress to connect to remote database.
+ 
+Hint: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
+ 
+ <img width="554" alt="db" src="https://user-images.githubusercontent.com/82297594/156104429-9f4bf82d-5c76-485e-b339-f1b9117b606a.png">
+ 
+ 1. Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client
+sudo yum install mysql
+sudo mysql -u admin -p -h <DB-Server-Private-IP-address>
+2. Verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases.
+
+3. Change permissions and configuration so Apache could use WordPress:
+
+4. Enable TCP port 80 in Inbound Rules configuration for your Web Server EC2 (enable from everywhere 0.0.0.0/0 or from your workstation’s IP)
+
+5. Try to access from your browser the link to your WordPress http://<Web-Server-Public-IP-Address>/wordpress/
+ 
+ 
+ 
+ <img width="960" alt="my wd" src="https://user-images.githubusercontent.com/82297594/156125400-f4098091-36dc-4e09-b9ec-102f83c78237.png">
+ congratulations!!
 
  
